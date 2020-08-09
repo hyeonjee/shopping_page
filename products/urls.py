@@ -4,11 +4,12 @@ from .views import *
 
 app_name="products"
 urlpatterns=[
-    path('', main, name="main"),
-    path('item_category/', item_category, name="item_category"),
+    path('', home, name="home"),
+    path('main', main, name="main"),
     path('new/', new, name="new"),
-    path('show/', show, name="show"),
-    
-  
+    path('create/', create, name="create"),
+    path('show/<int:id>/', show, name="show"),
+    path('edit/<int:id>/', update, name="update"),
+    path('delete/<int:id>/', delete, name="delete"),
 ]
 

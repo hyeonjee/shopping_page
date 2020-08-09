@@ -5,16 +5,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 
 <div class="container">
-    <h1>상품 생성 페이지</h1>
+    <h1>상품 수정 페이지</h1>
     <div class="form">
-        <form action="{% url 'products:create' %}" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'products:update' product.pk %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <br/>
             <input type="file" name="image"  accept="image/*">
             <br/>
             <div class="form-group">
-                <label>상품명</label> 
+                <label>상품명 </label> 
                <input type="text" class="form-control" name="product_name" id="product_name" placeholder="상품명을 입력해 주세요" value = "{{ product.product_name }}"> 
             </div>
             <div class="form-group">
@@ -23,15 +23,15 @@
             </div>
             <div class="form-group">
                 <label>상품 가격</label>
-                <input type="text" class="form-control" name="price" id="price" >{{product.price}}</textarea>
+                <input type="text" class="form-control" name="price" id="price" value="{{product.price}}" ></textarea>
             </div>
             <div class="form-group">
                 <label>재고</label>
-                <input type="text" class="form-control" name="stock" id="stock" >{{product.stock}}</textarea>
+                <input type="text" class="form-control" name="stock" id="stock" value="{{product.stock}}" ></textarea>
             </div>
             <div class="form-group">
                 <label>판매자</label>
-                <input type="text" class="form-control" name="seller" id="seller" >{{product.seller}}</textarea>
+                <input type="text" class="form-control" name="seller" id="seller" value="{{product.seller}}" ></textarea>
             </div>
             <input type="submit" value="글 작성" class="btn btn-outline-primary">
         </form>

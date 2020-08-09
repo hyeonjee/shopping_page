@@ -12,6 +12,8 @@ class Product(models.Model):
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True) 
     seller = models.CharField(max_length=50, null=False)
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
+
 
     
 class Review(models.Model):

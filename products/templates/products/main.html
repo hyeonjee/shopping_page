@@ -3,9 +3,24 @@
 {% block content %}
 {% include 'shared/navbar.html' %}
 
-<h1>main</h1>
-<img src="{%static 'images/aa.jpg'%}" />
-
-
+<h1>상품 목록</h1>
+<br>
+    {% for product in products %}
+         {% if product.image %}
+        <img src="{{ product.image.url }}" alt="사진" width="10%" height="10%">
+        {% endif %}
+        <br>
+        상품명: {{product.product_name}}
+        <br>
+        상품 설명: {{product.product_info}}
+        <br>
+        가격: {{product.price}}
+        <br>
+        재고: {{product.stock}}
+        <a href="{% url 'products:show' product.pk %}" class="btn btn-primary">상세보기</a>
+        <br>
+        <br>
+    {% endfor %}
+<a href="{% url 'products:new' %}" class="btn btn-primary">상품 추가</a>
 
 {% endblock %}

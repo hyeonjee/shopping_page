@@ -1,1 +1,40 @@
-<h2>상품 상세 설명 페이지</h2>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+{% include 'shared/navbar.html' %}
+
+<h1>상품 목록 페이지</h1>
+{% if product.image %}
+    <img src="{{product.image.url}}" alt="사진" width="10%" height="10%">
+{% endif %}
+<br>
+상품명: {{product.product_name}}
+<br>
+상품 소개: {{product.product_info}}
+<br>
+상품 가격: {{product.price}}
+<br>
+재고: {{product.stock}}
+<br>
+판매자: {{product.seller}}
+<br>
+
+{% if user == product.user %}
+<a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
+<a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
+{% endif %}
+
+
+
+
+
+
+
+
+<!-- <a href="{% url 'products:new' %}" class="btn btn-primary">등록</a> -->
+
+
+
+
+
+{% endblock %}
