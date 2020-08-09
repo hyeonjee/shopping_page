@@ -5,7 +5,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Yeon+Sung&display=swap" rel="stylesheet">
 
 <div class="container">
-    <h1>상품 생성 페이지</h1>
+    <h1>상품 추가</h1>
     <div class="form">
         <form action="{% url 'products:create' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -23,7 +23,7 @@
             </div>
             <div class="form-group">
                 <label>상품 가격</label>
-                <input type="text" class="form-control" name="price" id="price" >{{product.price}}</textarea>
+                <input type="text" class="form-control" name="price" id="price">{{product.price}}</textarea>
             </div>
             <div class="form-group">
                 <label>재고</label>

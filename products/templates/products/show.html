@@ -12,22 +12,34 @@
 <div class="content">
     <p1>{{product.product_name}}</p1>
     <br>
-    <hr style="margin-left:45%; margin-top: 25px;">
+    <hr style="margin-left:50%; margin-top: 25px;">
     <div class="content_p2"></div>
-    <p2 style="padding-right:40px; font-size: 20px; font-weight: 300;">price:</p2> <p2 style="font-weight: 300; font-size: 20px;">{{product.price}}</p2>
+        <p2 style="padding-right:40px; font-size: 25px; font-weight: 300;">
+            <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre>
+        </p2>
+        <br>
+        <p2 style="padding-right:30px; font-size: 23px; font-weight: 250;">price:</p2> 
+        <p2 style="font-weight: 300; font-size: 25px; ;">{{product.price}}</p2>
+        <br>
     </div>
     <br>
-    <p2 style="padding-right:40px; font-size: 20px; font-weight: 300;"><pre>{{product.product_info}}</pre></p2>
-    <br>
-    <p4>재고: {{product.stock}}</p4>
-    <br>
-    판매자: {{product.seller}}
+    <div class="hidden_text">
+        {% if user.is_superuser %}
+        <p4>~~~~~# hidden_information #~~~~~</p4>
+        <br>
+        <p4>재고: {{product.stock}}</p4>
+        <br>
+        <p4>판매자: {{product.seller}}</p4>
+        {% endif %}
+    </div>
 </div>
 
+<div class="hidden_button"></div>
 {% if user == product.seller %}
 <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
 <a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
 {% endif %}
+</div>
 
 
 

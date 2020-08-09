@@ -57,3 +57,13 @@
 .content_p2{
     padding-top: 1%;
 }
+
+.hidden_text{
+    font-size: 18px;
+    font-family: 'Thasadith', sans-serif;
+    padding-top: 50px;
+}
+
+.hidden_button{
+    padding-top: 50px;
+}
