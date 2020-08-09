@@ -11,9 +11,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='images/', null=True)
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True) 
-    seller = models.CharField(max_length=50, null=False)
-    user = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
-
+    seller = models.ForeignKey(User, on_delete = models.CASCADE, null=True)
 
     
 class Review(models.Model):

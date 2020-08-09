@@ -19,7 +19,7 @@
 판매자: {{product.seller}}
 <br>
 
-{% if user == product.user %}
+{% if user == product.seller %}
 <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
 <a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
 {% endif %}

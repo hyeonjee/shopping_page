@@ -20,9 +20,8 @@ def create(request):
         price = request.POST.get('price')
         stock = request.POST.get('stock')
         image = request.FILES.get('image')
-        seller = request.POST.get('seller')
-        user = request.user
-        Product.objects.create(product_name=product_name, product_info=product_info, price=price, stock=stock, image=image, seller=seller, user=user)
+        seller = request.user
+        Product.objects.create(product_name=product_name, product_info=product_info, price=price, stock=stock, image=image, seller=seller)
     return redirect ('products:main')
 
 def show(request, id):
