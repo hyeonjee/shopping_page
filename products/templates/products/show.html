@@ -2,22 +2,28 @@
 {% load static %}
 {% block content %}
 {% include 'shared/navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
 <h1>상품 목록 페이지</h1>
 {% if product.image %}
-    <img src="{{product.image.url}}" alt="사진" width="10%" height="10%">
+    <div class="image">
+        <img src="{{product.image.url}}" alt="사진" width="100%" height="80%">
+    </div>
 {% endif %}
-<br>
-상품명: {{product.product_name}}
-<br>
-상품 소개: {{product.product_info}}
-<br>
-상품 가격: {{product.price}}
-<br>
-재고: {{product.stock}}
-<br>
-판매자: {{product.seller}}
-<br>
+<div class="content">
+    <p1>{{product.product_name}}</p1>
+    <br>
+    <hr style="margin-left:45%;">
+    <div class="content_p2"></div>
+    <p2 style="padding-right:40px; font-size: 20px; font-weight: 300;">price:</p2> <p2 style="font-weight: 300; font-size: 20px;">{{product.price}}</p2>
+    </div>
+    <br>
+    <p3>{{product.product_info}}</p3>
+    <br>
+    <p4>재고: {{product.stock}}</p4>
+    <br>
+    판매자: {{product.seller}}
+</div>
 
 {% if user == product.seller %}
 <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>

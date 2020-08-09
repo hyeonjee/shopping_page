@@ -40,3 +40,18 @@
     font-family: 'Cinzel', serif;
 }
 
+.image{
+    padding-left: 5%;
+    padding-right: 5%;
+    float: left;
+}
+
+.content p1{
+    font-family: 'Poppins', sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.content_p2{
+    padding-top: 5%;
+}
