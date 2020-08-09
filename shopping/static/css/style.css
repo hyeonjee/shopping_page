@@ -8,10 +8,10 @@
 .card{
     text-align: center;
     float: left;
-    margin-left: 2.2%;
+    margin-left: 6px;
     margin-bottom: 3%;
     border-color: transparent;
-    
+
 }
 
 .right{
@@ -27,6 +27,7 @@
 .product_name{
     font-family: 'Patua One', cursive;
     font-size: 18px;
+    color: black;
 }
 
 .product_info{
@@ -38,3 +39,4 @@
 .card-text{
     font-family: 'Cinzel', serif;
 }
+
