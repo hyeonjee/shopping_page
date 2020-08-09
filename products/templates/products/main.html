@@ -2,26 +2,35 @@
 {% load static %}
 {% block content %}
 {% include 'shared/navbar.html' %}
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Patua+One&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Thasadith:ital@1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Epilogue:wght@300&display=swap" rel="stylesheet">
 
-<h1>상품 목록</h1>
-<br>
-    {% for product in products %}
-         {% if product.image %}
-        <img src="{{ product.image.url }}" alt="사진" width="10%" height="10%">
-        {% endif %}
-        <br>
-        상품명: {{product.product_name}}
-        <br>
-        상품 설명: {{product.product_info}}
-        <br>
-        가격: {{product.price}}
-        <br>
-        재고: {{product.stock}}
-        <br>
-        <a href="{% url 'products:show' product.pk %}" class="btn btn-primary">상세보기</a>
-        <br>
-        <br>
-    {% endfor %}
-<a href="{% url 'products:new' %}" class="btn btn-primary">상품 추가</a>
-
+<div class="center">
+    <h1>Daily</h1><br>
+    {% if user.is_superuser %}
+    <div class="right">
+        <a href="{% url 'products:new' %}" class="btn btn-primary">상품 추가</a>
+    </div>
+    {% endif %}
+    <div class="card_center">
+        {% for product in products %}
+        <div class="card" style="width: 20rem;">
+            {% if product.image %}
+            <img src="{{product.image.url}}" class="card-img-top" alt="사진" width="5%" height="5%">
+            {% endif %}        
+            <div class="card-body">
+                <p class="card-title">
+                    <div class="product_name">{{product.product_name}}</div>
+                    <div class="product_info">{{product.product_info}}</div>
+                </p>  
+                <p class="card-text">
+                <a href="{% url 'products:show' product.pk %}" class="btn btn-primary">상세 보기</a>
+                </p>          
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>   
 {% endblock %}

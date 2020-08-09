@@ -37,7 +37,7 @@ def update(request, id):
         product.price = request.POST['price']
         product.stock = request.POST['stock']
         product.image = request.FILES.get('image')
-        product.seller = request.POST['seller']
+        product.seller = request.user
         product.save()
         return redirect('products:show', product.pk)
     return render(request, 'products/edit.html', {'product':product})
