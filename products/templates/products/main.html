@@ -19,12 +19,12 @@
         <div class="card" style="width: 22rem;">
             <a href="{% url 'products:show' product.pk %}" style="text-decoration: none; text-decoration-color: none;">
             {% if product.image %}
-            <img src="{{product.image.url}}" class="card-img-top" alt="사진" width="5%" height="5%">
+            <img src="{{product.image.url}}" class="card-img-top" alt="사진" width="100px" height="500px" style="object-fit: cover;">
             {% endif %}        
             <div class="card-body">
                 <p class="card-title">
                     <div class="product_name">{{product.product_name}}</div>
-                    <div class="product_info">{{product.product_info}}</div>
+                    <div class="product_info"><pre>{{product.product_info}}</pre></div>
                 </p>           
             </div>
             </a>

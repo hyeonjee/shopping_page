@@ -4,21 +4,20 @@
 {% include 'shared/navbar.html' %}
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
 
-<h1>상품 목록 페이지</h1>
 {% if product.image %}
     <div class="image">
-        <img src="{{product.image.url}}" alt="사진" width="100%" height="80%">
+        <img src="{{product.image.url}}" alt="사진" width="600px" height="800px" style="object-fit: cover;">
     </div>
 {% endif %}
 <div class="content">
     <p1>{{product.product_name}}</p1>
     <br>
-    <hr style="margin-left:45%;">
+    <hr style="margin-left:45%; margin-top: 25px;">
     <div class="content_p2"></div>
     <p2 style="padding-right:40px; font-size: 20px; font-weight: 300;">price:</p2> <p2 style="font-weight: 300; font-size: 20px;">{{product.price}}</p2>
     </div>
     <br>
-    <p3>{{product.product_info}}</p3>
+    <p2 style="padding-right:40px; font-size: 20px; font-weight: 300;"><pre>{{product.product_info}}</pre></p2>
     <br>
     <p4>재고: {{product.stock}}</p4>
     <br>
