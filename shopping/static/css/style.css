@@ -1,8 +1,8 @@
 .center h1{
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 5%;
+    margin-bottom: 7%;
     font-family: 'Cormorant Garamond', serif;
-    font-size: 50px;
+    font-size: 60px;
 }
 
 .card{
@@ -51,7 +51,7 @@
 }
 
 .content{
-    padding-top: 5%;
+    padding-top: 4%;
 }
 
 .content_p2{
@@ -61,9 +61,28 @@
 .hidden_text{
     font-size: 18px;
     font-family: 'Thasadith', sans-serif;
-    padding-top: 50px;
 }
 
-.hidden_button{
-    padding-top: 50px;
+.carousel-container{
+    width: 0px;
+    margin-top: 45px;
+    margin-bottom: 400px;
+}
+
+.btn-light{
+    background-color: rgb(204, 224, 204);
+    margin-top: 20px;
+    margin-right: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.price{
+    padding-top: 10px;
+}
+
+.hidden_text{
+    padding-left: 30px;
 }

@@ -10,45 +10,49 @@
     </div>
 {% endif %}
 <div class="content">
-    <p1>{{product.product_name}}</p1>
+    <p1>{{product.product_name}}</p1> 
     <br>
     <hr style="margin-left:50%; margin-top: 25px;">
-    <div class="content_p2"></div>
+    <div class="content_p2">
         <p2 style="padding-right:40px; font-size: 25px; font-weight: 300;">
-            <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre>
-        </p2>
+            <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre></p2>
+            
+            
+            <br>
+        <p2 style="padding-right:30px; font-size: 18px; font-weight: 200;">stock:</p2> 
+        <p2 style="font-weight: 200; font-size: 18px; ;">{{product.stock}}</p2>
         <br>
-        <p2 style="padding-right:30px; font-size: 23px; font-weight: 250;">price:</p2> 
-        <p2 style="font-weight: 300; font-size: 25px; ;">{{product.price}}</p2>
+        <div class="price">
+        <p2 style="padding-right:28px; font-size: 23px; font-weight: 250;">price:</p2> 
+        <p2 style="font-weight: 400; font-size: 25px;">{{product.price}}</p2>
+        </div>
         <br>
-    </div>
-    <br>
-    <div class="hidden_text">
-        {% if user.is_superuser %}
-        <p4>~~~~~# hidden_information #~~~~~</p4>
-        <br>
-        <p4>재고: {{product.stock}}</p4>
-        <br>
-        <p4>판매자: {{product.seller}}</p4>
+        <button type="button" class="btn btn-light">Buy Now</button>
+        <button type="button" class="btn btn-light">Add Cart</button>
+       
+        {% if user.is_superuser %}    
+        <p6>판매자: {{product.seller}}</p6>
+        <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
+        <a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
         {% endif %}
+        <div class="carousel-container">
+            <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
+                <div class="carousel-item active">
+                    <img src="{%static 'images/dddd.png'%}" width="600px" height="300" style="object-fit: cover;">
+                </div>
+                <div class="carousel-item" >
+                    <img src="{%static 'images/dd.jpg'%}" width="600px" height="300" style="object-fit: cover;">
+                </div>
+                <div class="carousel-item" >
+                    <img src="{%static 'images/ddd.png'%}" width="600px" height="300" style="object-fit: cover;">
+                </div>
+            </div>
+        </div>
+        
     </div>
 </div>
 
-<div class="hidden_button"></div>
-{% if user == product.seller %}
-<a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
-<a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
-{% endif %}
-</div>
 
-
-
-
-
-
-
-
-<!-- <a href="{% url 'products:new' %}" class="btn btn-primary">등록</a> -->
 
 
 

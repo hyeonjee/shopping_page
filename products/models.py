@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class Product(models.Model):
     product_name = models.CharField(max_length=50, null=False)
     product_info = models.TextField()
-    price = models.IntegerField()
-    stock = models.IntegerField()
+    price = models.CharField(max_length=50)
+    stock = models.IntegerField(default=0)
     image = models.ImageField(upload_to='images/', null=True)
     created_at= models.DateTimeField(auto_now_add=True)
     updated_at= models.DateTimeField(auto_now=True) 
