@@ -192,6 +192,11 @@ button:focus{
     margin-top: 15px;
 }
 
-button:hover{
-    color: ;
+button{
+    border: black;
 }
+
+button:hover{
+    background-color:grey;
+}
+

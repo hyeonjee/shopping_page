@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 <link rel="stylesheet" href="{% static 'css/style.css'%}">
 <link href="https://fonts.googleapis.com/css2?family=Antic+Slab&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
 <!doctype html>
 <html lang="en">
 <head>
@@ -15,8 +15,8 @@
 	#fullpage {position:relative;top:0px;z-index:9;width:100%;height:100%; object-fit: cover;}
 	.fullsection{width:100%;height:100%; position:relative;}
 	.full1{background:white;}
-	.full2{background:yellow;}
-	.full3{background:green;}
+	.full2{background:white;}
+	.full3{background:white;}
 	#fullpage span{display:block;position:absolute;top:45%;left:50%;transform:translate(-50%,-50%);color:#fff;font-size:4em;font-weight:bold;}
 	.full2 span{color:#000;}
 
@@ -33,10 +33,15 @@
             <img src="{% static 'images/hh.png'%}" width="70%">
             <span style="padding-left: 800px; color: black; font-size: 60px; font-family: 'Antic Slab', serif; font-weight: 400;" >2020<br>
                 <textspan style="font-size: 50px;">S/S</textspan><br>
-                <button class="button" type="button" onclick="location.href='products/main' ">New</button>
+                <button class="button" type="button" onclick="location.href='products/main'">New</button>
             </span></div>
-		<div class="fullsection full2" pageNum="2"><span>2 PAGE</span></div>
-		<div class="fullsection full3" pageNum="3"><span>3 PAGE</span></div>
+		<div class="fullsection full2" pageNum="2">
+			<img src="{% static 'images/bbb.jpg'%}" width="100%" style="margin-bottom: 30px;">
+			<span style="font-family: 'Antic Slab', serif;">Look Book</span>
+		</div>
+		<div class="fullsection full3" pageNum="3">
+			<img src="{% static 'images/s.png'%}" width="90%" style="padding-left: 20%; padding-top: 3%;">
+			<span style="color: rgb(121, 151, 121); font-family: 'Raleway', sans-serif;">S i m p l e</span></div>
 	</div>
 </body>
 
