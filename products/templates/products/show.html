@@ -29,9 +29,9 @@
         </div>
         
         <button type="button" class="btn btn-light">Buy Now</button>
-        <button type="button" class="btn btn-light">Add Cart</button>
+        <button type="button" class="btn btn-light">Add Cart</button><br><br>
        
-        {% if user.is_superuser %}    
+        {% if user == product.seller %}    
         <p6>판매자: {{product.seller}}</p6>
         <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
         <a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
