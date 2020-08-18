@@ -24,5 +24,4 @@ class ReviewAdmin(admin.ModelAdmin):
         "post",
         "created_at",
         "updated_at",
-        "product",
     )

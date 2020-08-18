@@ -20,5 +20,5 @@ class Review(models.Model):
     post = models.ForeignKey(Product, on_delete = models.CASCADE, related_name='comments')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    product = models.CharField(max_length=50, null=False)
+
 
