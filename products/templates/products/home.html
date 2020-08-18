@@ -27,14 +27,15 @@
 </style>
 </head>
 <body>
-	<div id="fullpage">
+	<div id="fullpage" style="margin-bottom: 10px;">
 		<div class='quick'><ul></ul></div>
 		<div class="fullsection full1" pageNum="1">
-            <img src="{% static 'images/hh.png'%}" width="70%">
-            <span style="padding-left: 800px; color: black; font-size: 60px; font-family: 'Antic Slab', serif; font-weight: 400;" >2020<br>
+            <img src="{% static 'images/hh.png'%}" width="80%" style="float: left; margin-right: 50px;">
+            <span style="position: relative; right:20px; color: black; font-size: 60px; font-family: 'Antic Slab', serif; font-weight: 400;" >2020<br>
                 <textspan style="font-size: 50px;">S/S</textspan><br>
-                <a href="{% url 'products:main' %}" style="color: black; font-size: 35px;">New</a>
-            </span></div>
+                <a href="{% url 'products:main' %}" style="color: black; font-size: 35px;">New >></a>
+			</span>
+		</div>
 		<div class="fullsection full2" pageNum="2">
 			<img src="{% static 'images/bbb.jpg'%}" width="100%" style="margin-bottom: 30px;">
 			<span style="font-family: 'Antic Slab', serif;">Look Book</span>
