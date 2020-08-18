@@ -15,18 +15,19 @@
     <hr style="margin-left:50%; margin-top: 25px;">
     <div class="content_p2">
         <p2 style="padding-right:40px; font-size: 25px; font-weight: 300;">
-            <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre></p2>
-            
-            
-            <br>
+            <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre>
+        </p2>
+        <br>
         <p2 style="padding-right:30px; font-size: 18px; font-weight: 200;">stock:</p2> 
         <p2 style="font-weight: 200; font-size: 18px; ;">{{product.stock}}</p2>
         <br>
         <div class="price">
-        <p2 style="padding-right:28px; font-size: 23px; font-weight: 250;">price:</p2> 
-        <p2 style="font-weight: 400; font-size: 25px;">{{product.price}}</p2>
+            <p2 style="padding-right:28px; font-size: 23px; font-weight: 250;">price:</p2> 
+            <p2 style="font-weight: 400; font-size: 25px;">{{product.price}}</p2><br><br>
+            <p style="font-size: 15px; color: grey; padding-top: 20px; font-weight: 300;">{{product.created_at}} <br>
+            {{product.updated_at}}</p>
         </div>
-        <br>
+        
         <button type="button" class="btn btn-light">Buy Now</button>
         <button type="button" class="btn btn-light">Add Cart</button>
        
