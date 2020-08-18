@@ -20,7 +20,7 @@ class ProductAdmin(admin.ModelAdmin):
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
         "user",
-        "star",
+        "rating",
         "post",
         "created_at",
         "updated_at",

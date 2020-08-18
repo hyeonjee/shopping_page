@@ -16,7 +16,7 @@ class Product(models.Model):
     
 class Review(models.Model):
     user = models.ForeignKey(User, on_delete = models.CASCADE)
-    star = models.IntegerField()
+    rating = models.IntegerField()
     post = models.ForeignKey(Product, on_delete = models.CASCADE, related_name='comments')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
