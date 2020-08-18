@@ -253,5 +253,26 @@ padding-bottom: 20%;
     left: 25px;
     font-size: 15px;
     color: rgb(253, 137, 137);
+}
 
+
+.password_change{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.password_change h1{
+    margin-bottom: 30px;
+    text-align: center;
+    font-size: 30px;
+}
+
+.password_change button{
+    background-color: black;
+    font-size: 20px;
+    position: relative;
+    top: 10px;
+    left: 11px;
 }
