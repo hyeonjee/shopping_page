@@ -27,22 +27,21 @@
 </style>
 </head>
 <body>
-	<div id="fullpage" style="margin-bottom: 10px;">
+	<div id="fullpage" style="z-index: 1;">
 		<div class='quick'><ul></ul></div>
 		<div class="fullsection full1" pageNum="1">
-            <img src="{% static 'images/hh.png'%}" width="80%" style="float: left; margin-right: 50px;">
+            <img src="{% static 'images/hh.png'%}" height="100%" style="float: left; margin-right: 50px;">
             <span style="position: relative; right:20px; color: black; font-size: 60px; font-family: 'Antic Slab', serif; font-weight: 400;" >2020<br>
                 <textspan style="font-size: 50px;">S/S</textspan><br>
                 <a href="{% url 'products:main' %}" style="color: black; font-size: 35px;">New >></a>
 			</span>
 		</div>
 		<div class="fullsection full2" pageNum="2">
-			<img src="{% static 'images/bbb.jpg'%}" width="100%" style="margin-bottom: 30px;">
+			<img src="{% static 'images/bbb.jpg'%}" height="99%" style="position: fixed; left: 14%;"> 
 			<span style="font-family: 'Antic Slab', serif;">Look Book</span>
 		</div>
 		<div class="fullsection full3" pageNum="3">
-			<img src="{% static 'images/s.png'%}" width="90%" style="padding-left: 20%; padding-top: 3%;">
-			<span style="color: rgb(121, 151, 121); font-family: 'Raleway', sans-serif;">S i m p l e</span></div>
+			<img src="{% static 'images/s.png'%}" width="90%" style="padding-left: 20%; padding-top: 3%;" >
 	</div>
 </body>
 

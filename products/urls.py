@@ -11,5 +11,7 @@ urlpatterns=[
     path('show/<int:id>/', show, name="show"),
     path('edit/<int:id>/', update, name="update"),
     path('delete/<int:id>/', delete, name="delete"),
+    path('create_review/<int:product_id>', create_review, name="create_review"),
+    path('delete_review/<int:review_id>', delete_review, name="delete_review"),
 ]
 

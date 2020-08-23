@@ -19,9 +19,10 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Review)
 class ReviewAdmin(admin.ModelAdmin):
     list_display = (
-        "user",
+        "product",
+        "writer",
         "rating",
-        "post",
+        "content",
         "created_at",
         "updated_at",
     )

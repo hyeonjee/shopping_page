@@ -3,7 +3,6 @@
 {% block content %}
 {% include 'shared/navbar.html' %}
 <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
 {% if product.image %}
     <div class="image">
         <img src="{{product.image.url}}" alt="사진" width="600px" height="800px" style="object-fit: cover;">
@@ -49,6 +48,37 @@
                 </div>
             </div>
         </div>
+
+        <div class="container mt-5 mb-5">
+            <form class="form-row" action ="{% url 'products:create_review' product.id %}" method="POST">
+                {% csrf_token %}
+                <div class="container">
+                    <span id="rateMe3"  class="rating-faces" name ="rating"></span>
+                </div>
+                  
+                <!-- <textarea class="form-control col-11 mr-2" name="rating" placeholder="별점"></textarea> -->
+                 
+                <textarea class="form-control col-11 mr-2" name="content" placeholder="댓글 내용 입력"></textarea>
+                <input type="submit" class="btn btn-primary" value="확인">
+            </form>
+        </div>
+
+        <div class="container mt-5 mb-5">
+            {% for review in reviews %}
+            <div class="card">
+                <div class="card-body">
+                    {{review.content}}<br>
+                    {{review.writer}}<br>
+                    <small> {{review.created_at}} </small><br>
+                    {% if user == review.writer %}
+                    <a href="#" class="btn btn-primary">수정</a>
+                    <a href="{% url 'products:delete_review' review.pk %}" class="btn btn-primary">삭제</a>
+                    {% endif %}
+                </div>
+            </div>
+           
+            {% endfor %}
+        </div>        
         
     </div>
 </div>

@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .models import Product
+from .models import *
 
 # Create your views here.
 def home(request):
@@ -26,8 +26,10 @@ def create(request):
 
 def show(request, id):
     product = get_object_or_404(Product, pk=id)
+    # product.view_count += 1
     product.save()
-    return render (request, 'products/show.html', {"product":product})
+    reviews = product.comments.all().order_by('-created_at')
+    return render (request, 'products/show.html', {"product":product, "reviews":reviews})
 
 def update(request, id):
     product = get_object_or_404(Product, pk=id)
@@ -45,4 +47,18 @@ def update(request, id):
 def delete(request, id):
     product = get_object_or_404(Product, pk=id)
     product.delete()
+    return redirect('products:main')
+
+def create_review(request, product_id):
+    if request.method == "POST":
+        product = get_object_or_404(Product, pk =product_id)
+        writer = request.user
+        # rating = request.POST.get('rating')
+        review_content = request.POST.get('content')
+        Review.objects.create(content = review_content, writer = writer, product=product)
+    return redirect('products:show', product.pk)
+
+def delete_review(request, review_id):
+    review = get_object_or_404(Review, pk = review_id)
+    review.delete()
     return redirect('products:main')
