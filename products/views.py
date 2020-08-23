@@ -62,3 +62,4 @@ def delete_review(request, review_id):
     review = get_object_or_404(Review, pk = review_id)
     review.delete()
     return redirect('products:main')
+

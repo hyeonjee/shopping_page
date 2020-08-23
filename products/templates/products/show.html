@@ -72,6 +72,7 @@
                     <small> {{review.created_at}} </small><br>
                     {% if user == review.writer %}
                     <a href="#" class="btn btn-primary">수정</a>
+                    
                     <a href="{% url 'products:delete_review' review.pk %}" class="btn btn-primary">삭제</a>
                     {% endif %}
                 </div>
