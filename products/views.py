@@ -63,3 +63,11 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('products:main')
 
+def update_review(request, review_id):
+    review = get_object_or_404(Review, pk = review_id)
+    if request.method == "POST":
+        review.content = request.POST['review_content']
+        review.save()
+        return redirect('products:main')
+    return render(request, 'products/edit_review.html', {'review':review})
+
