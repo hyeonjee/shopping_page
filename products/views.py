@@ -64,6 +64,15 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('products:main')
 
+def update_review(request, review_id):
+    review = get_object_or_404(Review, pk = review_id)
+    if request.method == "POST":
+        review.content = request.POST['review_content']
+        review.save()
+        return redirect('products:main')
+    return render(request, 'products/edit_review.html', {'review':review})
+
+
 @login_required
 def product_like(request, product_id):
     product = get_object_or_404(Product, pk = product_id)
@@ -84,3 +93,6 @@ def product_like(request, product_id):
 def like_list(request):
     likes = Like.objects.filter(user=request.user)
     return render(request, 'products/like_list.html', {'likes': likes})
+
+
+

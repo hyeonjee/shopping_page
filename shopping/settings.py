@@ -39,9 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'products',
     'django.contrib.sites',
+    # allauth 관련 설정 #
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    # providers #
+    'allauth.socialaccount.providers.google',
 ]
 
 MIDDLEWARE = [

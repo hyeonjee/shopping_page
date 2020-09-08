@@ -11,7 +11,7 @@
 <div class="content">
     <p1>{{product.product_name}}</p1> 
     <br>
-    <hr style="margin-left:50%; margin-top: 25px;">
+    <hr style="margin-left:45%; margin-top: 25px;">
     <div class="content_p2">
         <p2 style="padding-right:40px; font-size: 25px; font-weight: 300;">
             <pre style="font-family: 'Thasadith', sans-serif;">{{product.product_info}}</pre>
@@ -44,7 +44,7 @@
         <a href="{% url 'products:update' product.pk %}" class="btn btn-primary">수정</a>
         <a href="{% url 'products:delete' product.pk %}" class="btn btn-primary">삭제</a>
         {% endif %}
-        <div class="carousel-container">
+        <div class="carousel-container" style="margin-bottom: 30%;">
             <div id="carouselExampleInterval" class="carousel slide" data-ride="carousel">
                 <div class="carousel-item active">
                     <img src="{%static 'images/dddd.png'%}" width="600px" height="300" style="object-fit: cover;">
@@ -58,16 +58,13 @@
             </div>
         </div>
 
+        <hr style="margin-right: 5%; margin-left: 5%;">
+
         <div class="container mt-5 mb-5">
+            <p style="font-weight: 500; font-size: 20px;">Review</p>
             <form class="form-row" action ="{% url 'products:create_review' product.id %}" method="POST">
                 {% csrf_token %}
-                <div class="container">
-                    <span id="rateMe3"  class="rating-faces" name ="rating"></span>
-                </div>
-                  
-                <!-- <textarea class="form-control col-11 mr-2" name="rating" placeholder="별점"></textarea> -->
-                 
-                <textarea class="form-control col-11 mr-2" name="content" placeholder="댓글 내용 입력"></textarea>
+                <textarea class="form-control col-11 mr-2" name="content" placeholder="리뷰를 남겨 주세요"></textarea>
                 <input type="submit" class="btn btn-primary" value="확인">
             </form>
         </div>
@@ -76,17 +73,23 @@
             {% for review in reviews %}
             <div class="card">
                 <div class="card-body">
-                    {{review.content}}<br>
-                    {{review.writer}}<br>
+                {{review.content}}<br>
+                    {% if review.writer %}
+                        {% if review.writer.username == 'user' %}
+                            {{review.writer.last_name}}{{review.writer.first_name}}<br>
+                        {% else %}
+                            {{review.writer}}<br> 
+                        {% endif %}
+                    {% else %}
+                        <p>알 수 없음</p>  
+                    {% endif %} 
                     <small> {{review.created_at}} </small><br>
                     {% if user == review.writer %}
-                    <a href="#" class="btn btn-primary">수정</a>
-                    
+                    <a href="{% url 'products:update_review' review.pk %}" class="btn btn-primary">수정</a>
                     <a href="{% url 'products:delete_review' review.pk %}" class="btn btn-primary">삭제</a>
                     {% endif %}
                 </div>
             </div>
-           
             {% endfor %}
         </div>        
         
