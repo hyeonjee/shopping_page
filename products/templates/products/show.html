@@ -37,11 +37,11 @@
                 <i class="far fa-heart"></i> {{product.like_count}}
             {% endif %}
         </a>
-        
-        <p>좋아요 한 사람:</p>
+
+        <p>좋아요 한 사람:
         {% for user in product.like_user_set.all %}
-            <h6>{{user.username}}</h6>
-        {% endfor %}
+            {{user.username}}
+        {% endfor %}</p>
        
         {% if user == product.seller %}    
         <p6>판매자: {{product.seller}}</p6>
