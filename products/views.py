@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 from .models import *
 
 # Create your views here.
@@ -63,3 +64,23 @@ def delete_review(request, review_id):
     review.delete()
     return redirect('products:main')
 
+@login_required
+def product_like(request, product_id):
+    product = get_object_or_404(Product, pk = product_id)
+
+    if request.user in product.like_user_set.all():
+        product.like_user_set.remove(request.user)
+    
+    else: 
+        product.like_user_set.add(request.user)
+
+    if request.GET.get('redirect_to') == 'show':
+        return redirect('products:show', product_id)
+
+    else: 
+        return redirect('products:main')
+
+@login_required
+def like_list(request):
+    likes = Like.objects.filter(user=request.user)
+    return render(request, 'products/like_list.html', {'likes': likes})

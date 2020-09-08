@@ -16,7 +16,7 @@
     {% endif %}
     <div class="card_center">
         {% for product in products %}
-        <div class="card" style="width: 22rem;">
+        <div class="card" style="width: 22rem;">            
             <a href="{% url 'products:show' product.pk %}" style="text-decoration: none; text-decoration-color: none;">
             {% if product.image %}
             <img src="{{product.image.url}}" class="card-img-top" alt="사진" width="100px" height="500px" style="object-fit: cover;">
@@ -25,6 +25,13 @@
                 <p class="card-title">
                     <div class="product_name">{{product.product_name}}</div>
                     <div class="product_info"><pre>{{product.product_info}}</pre></div>
+                    <a href="{% url 'products:product_like' product.id%}">
+                        {% if user in product.like_user_set.all %}
+                            <i class="fas fa-heart"></i> {{product.like_count}}
+                        {% else %}  
+                            <i class="far fa-heart"></i> {{product.like_count}}
+                        {% endif %}
+                    </a>
                 </p>           
             </div>
             </a>

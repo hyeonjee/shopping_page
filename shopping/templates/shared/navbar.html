@@ -21,6 +21,9 @@
         
           {% if user.is_authenticated %}
             <li class="nav-item">
+              <a class="nav-link" href="{% url 'products:like_list' %}">Like List</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
             </li>
             <li class="nav-item">
